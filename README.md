@@ -11,52 +11,56 @@ Each persona is saved as a `.txt` file.
 
 ---
 
-📁 Files & Structure
+## 📁 Files & Structure
 
 reddit-persona-builder/
-├── main.py                # Entry script
-├── reddit_persona.py      # Persona builder logic
+├── main.py # Entry script
+├── reddit_persona.py # Persona builder logic
 ├── requirements.txt
 ├── README.md
 └── samples/
-    └── kojied.txt
+└── kojied.txt
 
 ---
 
 ## ⚙️ Setup Instructions
 
 ### 1. Clone the Repository
-
 ```bash
 git clone https://github.com/SaurabhYadav45/reddit-persona-builder.git
 cd reddit-persona-builder
 
+```
 ### 2. Create a Virtual Environment
-
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
 ### 3. Install Dependencies
-
+```bash
 pip install -r requirements.txt
+```
 
 ### 4. Add Reddit API Credentials
 
 Create a .env file in the root directory:
-
+```bash
 REDDIT_CLIENT_ID=your_client_id
 REDDIT_CLIENT_SECRET=your_client_secret
 REDDIT_USER_AGENT=your_custom_user_agent
+```
 
 ### 5. 🚀 How to Run
 To generate a persona for any Reddit user, run:
-
+```bash
 python persona_builder.py <reddit_username>
+```
 
 #### Example:
+```bash
 python persona_builder.py kojied
-
+```
 This will create an output file at:
 samples/kojied.txt
 
@@ -100,5 +104,12 @@ samples/kojied.txt
 -> Each .txt file contains a structured persona with categories like interests, personality traits, behaviors, and frustrations.
 
 -> Only public Reddit data is used. No private or sensitive data is collected.
+
+---
+
+## 👤 Repository Owner
+
+**Saurabh Singh Yadav**  
+GitHub: [@SaurabhYadav45](https://github.com/SaurabhYadav45)  
 
 
