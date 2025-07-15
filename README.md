@@ -12,7 +12,6 @@ Each persona is saved as a `.txt` file.
 ---
 
 ## 📁 Files & Structure
-## 📁 Files & Structure
 
 ```text
 reddit-persona-builder/
@@ -100,6 +99,7 @@ samples/kojied.txt
 
 *Generated using publicly available Reddit data. Cited Post/Comment IDs included.*
 
+---
 
 ### ✅ Notes
 -> Code follows PEP-8 guidelines.
