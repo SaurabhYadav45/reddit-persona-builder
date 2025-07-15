@@ -56,44 +56,50 @@ REDDIT_USER_AGENT = "your_custom_user_agent"
 ### 5. 🚀 How to Run
 To generate a persona for any Reddit user, run:
 ```bash
-python persona_builder.py <reddit_username>
+python persona_builder.py
+```
+After this it ask for profile URL
+```bash
+🔗 Enter full Reddit profile URL (e.g. https://www.reddit.com/user/kojied/):
 ```
 
 #### Example:
 ```bash
-python persona_builder.py kojied
+python persona_builder.py
+🔗 Enter full Reddit profile URL (e.g. https://www.reddit.com/user/kojied/):
+https://www.reddit.com/user/spez/
 ```
 This will create an output file at:
 samples/kojied.txt
 
 
-## Generated Sample output format
+### Generated Sample output format
 
 **Username:** kojied
 **Account Age:** 5 years
 
-- ## Interests
+- ### Interests
   - Enjoys nightlife and music (Post ID: 1lykkqf).
   - Engages in NBA referee debates (Post ID: 1hcopxo).
   - Concerned about H1B visa exploitation (Post IDs: 1hnx8j0, 1hnx7lj).
 
-- ## Personality Traits
+- ### Personality Traits
   - Reflective and empathetic.
   - Curious and open to multiple viewpoints.
   - Displays humor in gaming discussions.
 
-- ## Location
+- ### Location
   - Based in New York City (inferred from multiple posts).
 
-- ## Hobbies
+- ### Hobbies
   - Plays strategy games like ManorLords.
   - Enjoys management/resource gameplay.
 
-- ## Behavioral
+- ### Behavioral
   - Active across diverse subreddits.
   - Frequently introspective and self-aware.
 
-- ## Frustrations or Beliefs
+- ### Frustrations or Beliefs
   - Dislikes lack of late-game content in strategy games.
   - Expresses concern over immigrant experiences.
 
@@ -102,15 +108,13 @@ samples/kojied.txt
 ---
 
 ### ✅ Notes
--> Code follows PEP-8 guidelines.
-
--> Each .txt file contains a structured persona with categories like interests, personality traits, behaviors, and frustrations.
-
--> Only public Reddit data is used. No private or sensitive data is collected.
+> Code follows PEP-8 guidelines.
+> Each .txt file contains a structured persona with categories like interests, personality traits, behaviors, and frustrations.
+> Only public Reddit data is used. No private or sensitive data is collected.
 
 ---
 
-## 👤 Repository Owner
+### 👤 Repository Owner
 
 **Saurabh Singh Yadav**  
 GitHub: [@SaurabhYadav45](https://github.com/SaurabhYadav45)  

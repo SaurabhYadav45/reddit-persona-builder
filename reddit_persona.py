@@ -57,21 +57,21 @@ def scrape_user_data(username):
         posts.append({
             "id": submission.id,
             "title": submission.title,
-            "body": submission.selftext,
+            "body": submission.selftext[:500] if submission.selftext else '',
             "subreddit": submission.subreddit.display_name,
             "created": datetime.fromtimestamp(submission.created_utc)
         })
 
     # Scrape up to 100 comments
-    for comment in user.comments.new(limit=20):
+    for comment in user.comments.new(limit=10):
         comments.append({
             "id": comment.id,
-            "body": comment.body,
+            "body": comment.body[:500] if comment.body else '',
             "subreddit": comment.submission.subreddit.display_name,
             "created": datetime.fromtimestamp(comment.created_utc)
         })
-    print("\nPost:", posts[0])
-    print("\nComment:", comments[0])
+    # print("\nPost:", posts[0])
+    # print("\nComment:", comments[0])
     return posts, comments
 
 # function to generate user persona based on posts and comments
@@ -88,7 +88,7 @@ def generate_persona(posts, comments):
 
     # Format the content with IDs for proper citation
     context = "## User Posts:\n"
-    for post in posts[:5]:  # Limit to avoid token limits
+    for post in posts[:20]:  # Limit to avoid token limits
         context += (
             f"Post ID: {post['id']}\n"
             f"Subreddit: {post['subreddit']}\n"
@@ -97,7 +97,7 @@ def generate_persona(posts, comments):
         )
 
     context += "## User Comments:\n"
-    for comment in comments[:5]:
+    for comment in comments[:10]:
         context += (
             f"Comment ID: {comment['id']}\n"
             f"Subreddit: {comment['subreddit']}\n"
@@ -108,7 +108,7 @@ def generate_persona(posts, comments):
     prompt = f"""
 You are an AI assistant that builds user personas from Reddit data.
 
-3. Based on the following Reddit user's activity, generate a detailed user persona using at least 5 distinct characteristics, grouped under these markdown headings:
+Based on the following Reddit user's activity, generate a detailed user persona using at least 5 distinct characteristics, grouped under these markdown headings:
 
 - ## Interests
 - ## Personality Traits
@@ -130,7 +130,7 @@ Reddit User Activity:
 
     # Call the LLM
     response = openai_client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.7,
         max_tokens=1500
@@ -149,7 +149,7 @@ def format_account_age(created_datetime):
 
 # Function to format and save the user person
 def save_persona(username, persona, created_datetime):
-    """Save the persona to a well-structured .txt file.
+    """Save the persona to a well-structured .txt file inside 'sample' folder.
 
     Args:
         username (str): Reddit username.
@@ -159,6 +159,8 @@ def save_persona(username, persona, created_datetime):
     Returns:
         str: Filename of the saved persona.
     """
+    folder = "sample"
+    os.makedirs(folder, exist_ok=True)
     account_age = format_account_age(created_datetime)
 
     header = f"""
@@ -173,7 +175,9 @@ def save_persona(username, persona, created_datetime):
 All statements are AI-inferred and cite specific Post or Comment IDs.
 """
     full_content = header + persona.strip() + "\n\n" + footer
-    filename = f"{username}_persona.txt"
+
+    # Construct full file path inside 'sample/' folder
+    filename = os.path.join(folder, f"{username}_persona.txt")
 
     with open(filename, "w", encoding="utf-8") as f:
         f.write(full_content)
