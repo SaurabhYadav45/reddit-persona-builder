@@ -12,14 +12,17 @@ Each persona is saved as a `.txt` file.
 ---
 
 ## 📁 Files & Structure
+## 📁 Files & Structure
 
+```text
 reddit-persona-builder/
-├── main.py # Entry script
-├── reddit_persona.py # Persona builder logic
+├── main.py                # Entry script
+├── reddit_persona.py      # Persona builder logic
 ├── requirements.txt
 ├── README.md
 └── samples/
-└── kojied.txt
+    └── kojied.txt
+```
 
 ---
 
@@ -46,9 +49,9 @@ pip install -r requirements.txt
 
 Create a .env file in the root directory:
 ```bash
-REDDIT_CLIENT_ID=your_client_id
-REDDIT_CLIENT_SECRET=your_client_secret
-REDDIT_USER_AGENT=your_custom_user_agent
+REDDIT_CLIENT_ID = "your_client_id"
+REDDIT_CLIENT_SECRET = "your_client_secret"
+REDDIT_USER_AGENT = "your_custom_user_agent"
 ```
 
 ### 5. 🚀 How to Run
@@ -98,7 +101,7 @@ samples/kojied.txt
 *Generated using publicly available Reddit data. Cited Post/Comment IDs included.*
 
 
-✅ Notes
+### ✅ Notes
 -> Code follows PEP-8 guidelines.
 
 -> Each .txt file contains a structured persona with categories like interests, personality traits, behaviors, and frustrations.
