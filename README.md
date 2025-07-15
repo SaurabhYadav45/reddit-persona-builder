@@ -1,4 +1,4 @@
-# 🤖 Gen AI Internship Assignment – Reddit Persona Builder
+# 🤖 Gen AI – Reddit Persona Builder
 
 ## 📝 Project Description
 
