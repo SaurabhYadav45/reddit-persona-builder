@@ -118,7 +118,10 @@ Based on the following Reddit user's activity, generate a detailed user persona 
 - ## Behavioural
 - ## Frustrations or Beliefs
 
-For **each point**, include the source **(Post ID: xxx)** or **(Comment ID: yyy)** that supports your inference. 
+Instructions:
+1. Use only the provided content to generate insights. Do not infer anything not clearly supported by the user's post or comment content.
+
+2. For **each point**, include the source **(Post ID: xxx)** or **(Comment ID: yyy)** that supports your inference. 
 Only use the actual Post IDs or Comment IDs already provided. Do NOT guess or write "XXX".
 
 Example:
